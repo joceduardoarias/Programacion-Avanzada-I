@@ -37,4 +37,24 @@ public class Persona {
 		this.nombre = nombre;
 	}
 	
+	@Override 
+	public String toString() {
+		return "Usuario: " + this.getNombre() + "\n" + "DNI: " + this.getDni();
+	}
+	
+	@Override 
+	public boolean equals(Object objeto) {
+		boolean result = false;
+		
+		if(objeto != null) {
+			if( objeto instanceof Persona) {
+				Persona p =(Persona)objeto;
+				
+				if(p.dni == this.dni) {
+					result = true;
+				}
+			}
+		}
+		return result;
+	}
 }
