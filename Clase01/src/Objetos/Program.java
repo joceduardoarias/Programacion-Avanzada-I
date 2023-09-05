@@ -8,11 +8,9 @@ public class Program {
 		System.err.println(str);
 
 		// Instantiating person object
-		Persona personaUno = new Persona();
-		personaUno.dni = 12345678;
-		personaUno.nombre = "Juan";
-		
-		System.out.println("Usuario: " + personaUno.dni + "\n" + "DNI: " + personaUno.nombre);
+		Persona personaUno = new Persona(12345678, "Juan");
+				
+		System.out.println("Usuario: " + personaUno.getNombre() + "\n" + "DNI: " + personaUno.getDni());
 	}
 
 }
