@@ -8,7 +8,7 @@ public class Program {
 		System.err.println(str);
 
 		// Instantiating person object
-		Persona personaUno = new Persona(12345678, "Juan");
+		Persona personaUno = new Persona(12345678, "juan");
 		Persona personaDos = new Persona(12345678, "Juan");
 		
 		System.out.println(personaUno.toString());
@@ -17,9 +17,9 @@ public class Program {
 		System.out.println("\n");
 		
 		if(personaUno.equals(personaDos)) {
-			System.out.println("Las dos instancias son del tipo Persona y tienen el mismo DNI");
+			System.out.println("Las dos instancias son iguales");
 		}else {
-			System.out.println("Las dos instancias son del tipo Persona y tiene distinto DNI");
+			System.out.println("Las dos instancias son distintas");
 		}
 	}
 

@@ -46,6 +46,8 @@ public class Persona {
 	public boolean equals(Object objeto) {
 		boolean result = false;
 		
+		if (this == objeto) return true;
+		
 		if(objeto != null) {
 			if( objeto instanceof Persona) {
 				Persona p =(Persona)objeto;
@@ -57,4 +59,13 @@ public class Persona {
 		}
 		return result;
 	}
+	
+	@Override
+	public int hashCode() {
+	    int result = 17;  // Número primo inicial
+	    result = 31 * result + (nombre == null ? 0 : nombre.hashCode());  // 31 es otro número primo
+	    result = 31 * result + dni;
+	    return result;
+	}
+
 }
