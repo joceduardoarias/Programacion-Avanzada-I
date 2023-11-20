@@ -3,6 +3,7 @@ package com.example.demo.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
@@ -14,9 +15,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.model.*;
+import com.example.demo.repository.PersonaRepository;
+
 @RestController
 @RequestMapping("/api")
 public class PersonaController {
+	@Autowired
+	PersonaRepository personaRepository;
 	
 	@GetMapping("/saludar")
 	public String saludar() {
@@ -58,6 +63,7 @@ public class PersonaController {
 	@PostMapping("/Addpersona")
 	public ResponseEntity<?> Addpersona(@RequestBody @Validated Persona p) {
 		
+		personaRepository.save(p);
 		
 		return new ResponseEntity<Persona>(p,HttpStatus.OK);
 	}
