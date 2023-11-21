@@ -4,14 +4,16 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-
+import jakarta.validation.constraints.NotEmpty;
 @Entity
 public class Cliente {
 	
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
+	    @NotEmpty(message = "El nombre no puede estar vacío")
 	    private String nombre;
+	    @NotEmpty(message = "El email no puede estar vacío")
 	    private String email;
 	    
 	 // Constructor por defecto
@@ -50,7 +52,7 @@ public class Cliente {
 	        this.email = email;
 	    }
 
-	    // Método toString (opcional pero útil para depuración)
+	    // Método toString (depuración)
 	    @Override
 	    public String toString() {
 	        return "Cliente{" +

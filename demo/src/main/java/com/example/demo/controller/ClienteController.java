@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.ClienteDTO;
@@ -35,7 +36,7 @@ public class ClienteController {
 
     // Crear un nuevo cliente
     @PostMapping
-    public ResponseEntity<ClienteDTO> createCliente(@RequestBody ClienteDTO clienteDTO) {
+    public ResponseEntity<ClienteDTO> createCliente(@RequestBody @Validated ClienteDTO clienteDTO) {
         ClienteDTO nuevoCliente = clienteService.save(clienteDTO);
         return ResponseEntity.ok(nuevoCliente);
     }

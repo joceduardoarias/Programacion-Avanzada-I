@@ -8,6 +8,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.Date;
 
 @Entity
@@ -15,9 +18,12 @@ public class Pedido {
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)
 	    private Long id;
+	 	@NotNull(message = "El fecha no puede estar vacía")
 	    private Date fecha;
+	 	@NotEmpty(message = "El detalle no puede estar vacío")
 	    private String detalles;
-
+	 	
+	 	@NotNull(message = "El cliente_id no puede estar vacío")
 	    @ManyToOne
 	    @JoinColumn(name = "cliente_id")
 	    private Cliente cliente;

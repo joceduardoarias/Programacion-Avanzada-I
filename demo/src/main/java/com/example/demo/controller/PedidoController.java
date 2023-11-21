@@ -2,6 +2,7 @@ package com.example.demo.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.example.demo.model.PedidoDTO;
@@ -35,7 +36,7 @@ public class PedidoController {
 
     // Crear un nuevo pedido
     @PostMapping
-    public ResponseEntity<PedidoDTO> createPedido(@RequestBody PedidoDTO pedidoDTO) {
+    public ResponseEntity<PedidoDTO> createPedido(@RequestBody @Validated PedidoDTO pedidoDTO) {
         PedidoDTO nuevoPedido = pedidoService.save(pedidoDTO);
         return ResponseEntity.ok(nuevoPedido);
     }

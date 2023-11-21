@@ -26,7 +26,7 @@ public class ClienteMapper {
         }
 
         Cliente cliente = new Cliente();
-        cliente.setId(dto.getId()); // Normalmente no se establece el ID en una creación
+        cliente.setId(dto.getId());
         cliente.setNombre(dto.getNombre());
         cliente.setEmail(dto.getEmail());
         return cliente;
